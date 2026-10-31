@@ -4,6 +4,7 @@ import argparse
 from scraper import scrape_category
 from mailer import send_report
 from formatter import format_report
+from telegram_sender import send_telegram
 
 
 def main():
@@ -52,7 +53,7 @@ def main():
         body=body,
         attachment_path=filename,
     )
-
+    send_telegram(body, filename)
 
 if __name__ == "__main__":
     main()
